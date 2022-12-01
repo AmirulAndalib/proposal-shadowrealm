@@ -119,6 +119,12 @@ location: https://tc39.es/proposal-shadowrealm/
 		<emu-note type=editor>
 			In the case of an abrupt ~throw~ completion, the type of error to be created should match the type of the abrupt throw completion record. This could be revisited when merging into the main specification. Additionally, in the case of a ~break~ or ~continue~ completion, since those are not supported, a TypeError is expected.
 		</emu-note>
+		<p>
+			The host enviroment must not allows a program running in a ShadowRealm to get an object reference from any other Realm. Similarely, the host enviroment must not allows a program running in a Realm to get an object reference from a ShadowRealm.
+		</p>
+		<emu-note type=editor>
+			The text above imposes the callable boundary semantics only when at least one of the two realms involved is a ShadowRealm. Other Realms can continue sharing object identities.
+		</emu-note>
 	</emu-clause>
 
 	<emu-clause id="sec-ordinary-wrapped-function-call" type="abstract operation">
