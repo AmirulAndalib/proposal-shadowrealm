@@ -123,7 +123,7 @@ location: https://tc39.es/proposal-shadowrealm/
 			The host enviroment must not allow a program running in a ShadowRealm to observe the identity of an object from any other Realm. Similarly, the host enviroment must not allow a program running in a Realm to observe the identity of an object from a ShadowRealm.
 		</p>
 		<emu-note type=editor>
-			The text above imposes the callable boundary semantics only when at least one of the two realms involved is a ShadowRealm. Other Realms can continue sharing object identities.
+			If an execution in a ShadowRealm R1 oblivious of host APIs can observe the identity of an object O1, a host API must not allow an execution in any other realm than R1 to also observe the identity of O1. Similarly if an execution in a realm R2 can observe the identity of an object O2, a host API must not allow execution in any other Realm than R2 that is a ShadowRealm to also observe the identity of O2. The text above imposes the callable boundary semantics only when at least one of the two realms involved is a ShadowRealm. Other Realms can continue sharing objects whose identities can be observed.
 		</emu-note>
 	</emu-clause>
 
